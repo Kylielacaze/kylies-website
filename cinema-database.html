@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cinema Database Design & Business Analysis Case Study by Kylie LaCaze. Relational schema design, normalization, and SQL analytical querying for a multi-auditorium movie theater business.">
+  <title>Cinema Database Design &amp; Business Analysis | Kylie LaCaze</title>
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav">
+        <a href="index.html" class="nav-brand">
+          <span class="brand-name">Kylie LaCaze</span>
+          <span class="brand-divider">|</span>
+          <span class="brand-tagline">Information Systems &amp; Analytics • LSU</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="resume.html" class="nav-link">Resume</a></li>
+          <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Case Study Header -->
+    <header class="case-study-hero">
+      <div class="container">
+        <div class="breadcrumb-nav">
+          <a href="portfolio.html" class="breadcrumb-link">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <span>Back to Portfolio</span>
+          </a>
+        </div>
+
+        <div class="eyebrow-tag">
+          <span>Relational Database Management &amp; Analytics Case Study</span>
+        </div>
+        <h1 class="page-title" style="margin-bottom: 0.5rem;">Cinema Database Design &amp; Business Analysis</h1>
+        <p class="page-subtitle" style="max-width: 820px; margin-bottom: 0;">
+          Translating complex movie theater operations into a normalized relational database schema and authoring multi-table SQL queries to answer operational, revenue, and customer analytics questions.
+        </p>
+
+        <!-- Project Metadata Grid -->
+        <div class="case-study-meta-grid">
+          <div class="case-meta-item">
+            <span class="case-meta-label">Project Type</span>
+            <span class="case-meta-value">Team Project (Cinema Schema)</span>
+          </div>
+          <div class="case-meta-item">
+            <span class="case-meta-label">Academic Context</span>
+            <span class="case-meta-value">Information Systems &amp; Analytics &bull; LSU</span>
+          </div>
+          <div class="case-meta-item">
+            <span class="case-meta-label">Core Technologies</span>
+            <span class="case-meta-value">SQL, MySQL, Relational Modeling</span>
+          </div>
+          <div class="case-meta-item">
+            <span class="case-meta-label">Database Architecture</span>
+            <span class="case-meta-value">3rd Normal Form (3NF), 10 Relational Tables</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- Section 1: Project Overview -->
+      <section class="case-study-section">
+        <h2 class="case-section-title">Project Overview</h2>
+        <div class="card" style="padding: 1.5rem 1.75rem;">
+          <p class="card-body" style="font-size: 1.02rem; line-height: 1.7; color: var(--color-text-strong);">
+            As part of a team database design project, we designed a relational database for a movie theater business that needed to organize movies, showtimes, auditoriums, customers, employees, ticket sales, and concession activity. The project focused on translating business processes into a structured relational database and using SQL to answer operational and analytical business questions.
+          </p>
+          <div class="callout-box" style="margin-bottom: 0; margin-top: 1.15rem;">
+            <strong>Team Collaboration Note:</strong> This project was developed as a collaborative initiative by the <em>Cinema Schema</em> team (Kylie LaCaze, Elle Dieterich, Casey Tran, Tyler Le). Individual contribution details will be provided separately.
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Business Problem -->
+      <section class="case-study-section">
+        <h2 class="case-section-title">Business Problem</h2>
+        <div class="card" style="padding: 1.5rem 1.75rem;">
+          <p class="card-body" style="margin-bottom: 1rem;">
+            Our client is a commercial movie theater business that sells tickets, offers concessions such as popcorn and beverages, and operates multiple auditoriums with distinct seating capacities, daily showtimes, and movie schedules. Customers purchase tickets either online or in person, and frequently buy concession items during their visit.
+          </p>
+          <p class="card-body" style="margin-bottom: 1.25rem;">
+            The primary business problem is that a movie theater generates and processes a high volume of operational data every single day. Without a properly designed, normalized relational database, managing these transactions leads to acute operational bottlenecks:
+          </p>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem;">
+            <div style="background-color: var(--color-bg-page); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1rem;">
+              <div style="font-weight: 700; color: var(--color-text-strong); font-size: 0.9rem; margin-bottom: 0.25rem;">Seating &amp; Booking Integrity</div>
+              <p style="font-size: 0.84rem; color: var(--color-text-muted); line-height: 1.45;">Preventing duplicate seat bookings and ensuring tickets sold never exceed an auditorium's physical seating capacity.</p>
+            </div>
+            <div style="background-color: var(--color-bg-page); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1rem;">
+              <div style="font-weight: 700; color: var(--color-text-strong); font-size: 0.9rem; margin-bottom: 0.25rem;">Auditorium Scheduling</div>
+              <p style="font-size: 0.84rem; color: var(--color-text-muted); line-height: 1.45;">Eliminating room scheduling conflicts by verifying movie runtimes against showtimes and auditorium assignments.</p>
+            </div>
+            <div style="background-color: var(--color-bg-page); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1rem;">
+              <div style="font-weight: 700; color: var(--color-text-strong); font-size: 0.9rem; margin-bottom: 0.25rem;">Financial Accuracy</div>
+              <p style="font-size: 0.84rem; color: var(--color-text-muted); line-height: 1.45;">Capturing exact ticket revenues, concession order totals, and employee order handling for financial reconciliation.</p>
+            </div>
+            <div style="background-color: var(--color-bg-page); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1rem;">
+              <div style="font-weight: 700; color: var(--color-text-strong); font-size: 0.9rem; margin-bottom: 0.25rem;">Performance Intelligence</div>
+              <p style="font-size: 0.84rem; color: var(--color-text-muted); line-height: 1.45;">Tracking movie genre revenue, peak attendance dates, and high-margin concession items to support operational decisions.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Database Design (ERD & Schema Placeholders) -->
+      <section class="case-study-section">
+        <h2 class="case-section-title">Database Design &amp; Architecture</h2>
+        <p class="card-body" style="margin-bottom: 1.25rem;">
+          The system was designed from conceptual operational requirements through physical relational schema implementation. The database consists of <strong>10 normalized tables</strong> structured to Third Normal Form (3NF) to guarantee referential integrity and eliminate insertion, update, and deletion anomalies.
+        </p>
+
+        <!-- Placeholders for ER Diagram and Relational Schema Diagram -->
+        <div class="diagram-placeholder-grid">
+          <!-- ERD Placeholder -->
+          <div class="diagram-placeholder-card">
+            <div class="diagram-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            </div>
+            <h3 class="diagram-placeholder-title">Entity-Relationship (ER) Diagram</h3>
+            <div class="diagram-placeholder-spec">Deliverable M1 &bull; Conceptual Data Model</div>
+            <p class="diagram-placeholder-desc">
+              Visualizes all 10 core entities (Movie, Auditorium, Showtime, Ticket, Customer, Employee, Concession Order, Order Details, Concession Item, Movie Genre) with cardinality ratios and business relationship mappings.
+            </p>
+          </div>
+
+          <!-- Relational Schema Placeholder -->
+          <div class="diagram-placeholder-card">
+            <div class="diagram-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <h3 class="diagram-placeholder-title">Relational Schema Diagram</h3>
+            <div class="diagram-placeholder-spec">Deliverable M1/M3 &bull; Physical Schema (3NF)</div>
+            <p class="diagram-placeholder-desc">
+              Demonstrates primary key (PK) and foreign key (FK) referential constraints, composite keys, and table linkages ensuring strict data integrity across all transactions.
+            </p>
+          </div>
+        </div>
+
+        <!-- Schema Table Architecture Summary -->
+        <h3 style="font-size: 1rem; font-weight: 700; color: var(--color-text-strong); margin: 1.5rem 0 0.5rem;">Relational Entities &amp; Structural Definitions</h3>
+        <div class="schema-table-list">
+          <div class="schema-table-card">
+            <div class="schema-table-name"><span>movie</span> <span class="tech-chip accent">PK: movieid</span></div>
+            <div class="schema-table-desc">Stores unique movie titles and durations in minutes.</div>
+            <div class="schema-table-keys">Attributes: movieid, movietitle, movieduration</div>
+          </div>
+          <div class="schema-table-card">
+            <div class="schema-table-name"><span>auditorium</span> <span class="tech-chip accent">PK: auditoriumid</span></div>
+            <div class="schema-table-desc">Defines physical theater rooms, room numbers (UNIQUE), and seating capacities.</div>
+            <div class="schema-table-keys">Attributes: auditoriumid, roomnumber, seatingcapacity</div>
+          </div>
+          <div class="schema-table-card">
+            <div class="schema-table-name"><span>showtime</span> <span class="tech-chip accent">PK: showtimeid</span></div>
+            <div class="schema-table-desc">Schedules movie showings with date, start time, and auditorium assignment.</div>
+            <div class="schema-table-keys">FKs: auditoriumid &rarr; auditorium, movieid &rarr; movie</div>
+          </div>
+          <div class="schema-table-card">
+            <div class="schema-table-name"><span>ticket</span> <span class="tech-chip accent">PK: ticketid</span></div>
+            <div class="schema-table-desc">Records individual ticket transactions, seat numbers, prices, and purchasing patrons.</div>
+            <div class="schema-table-keys">FKs: showtimeid &rarr; showtime, custid &rarr; customer</div>
+          </div>
+          <div class="schema-table-card">
+            <div class="schema-table-name"><span>customer</span> <span class="tech-chip accent">PK: custid</span></div>
+            <div class="schema-table-desc">Maintains patron directory with contact details (first/last name, email, phone).</div>
+            <div class="schema-table-keys">Attributes: custid, custfirstname, custlastname, custemail, custphone</div>
+          </div>
+          <div class="schema-table-card">
+            <div class="schema-table-name"><span>employee</span> <span class="tech-chip accent">PK: employeeid</span></div>
+            <div class="schema-table-desc">Tracks staff members and assigned operational roles (Cashier, Concession Clerk, Manager, Usher).</div>
+            <div class="schema-table-keys">Attributes: employeeid, empfirstname, emplastname, employeerole</div>
+          </div>
+          <div class="schema-table-card">
+            <div class="schema-table-name"><span>concession_order</span> <span class="tech-chip accent">PK: orderid</span></div>
+            <div class="schema-table-desc">Captures concession purchase headers linked to handling employees and customers.</div>
+            <div class="schema-table-keys">FKs: employeeid &rarr; employee, custid &rarr; customer</div>
+          </div>
+          <div class="schema-table-card">
+            <div class="schema-table-name"><span>order_details</span> <span class="tech-chip accent">Composite PK</span></div>
+            <div class="schema-table-desc">Line-item junction table recording items ordered and quantities.</div>
+            <div class="schema-table-keys">PK/FKs: (itemid, orderid) &rarr; concession_item, concession_order</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Technical Implementation -->
+      <section class="case-study-section">
+        <h2 class="case-section-title">Technical Implementation</h2>
+        <div class="card" style="padding: 1.5rem 1.75rem;">
+          <p class="card-body" style="margin-bottom: 0.75rem;">
+            The schema was written in standard <strong>MySQL</strong> syntax, incorporating strict field data types, <code>NOT NULL</code> constraints, foreign key referential integrity rules, and unique room constraints. 
+          </p>
+          
+          <div class="code-window">
+            <div class="code-window-header">
+              <div class="code-window-dots">
+                <span class="code-window-dot"></span>
+                <span class="code-window-dot"></span>
+                <span class="code-window-dot"></span>
+              </div>
+              <span>DDL: Relational Table Creation Sample (MySQL)</span>
+            </div>
+            <pre><code><span class="code-comment">-- Example: Showtime &amp; Ticket Entity Constraints</span>
+<span class="code-keyword">CREATE TABLE</span> showtime (
+    showtimeid <span class="code-function">INT NOT NULL</span>,
+    starttime <span class="code-function">TIME NOT NULL</span>,
+    showdate <span class="code-function">DATE NOT NULL</span>,
+    auditoriumid <span class="code-function">INT NOT NULL</span>,
+    movieid <span class="code-function">INT NOT NULL</span>,
+    <span class="code-keyword">PRIMARY KEY</span> (showtimeid),
+    <span class="code-keyword">FOREIGN KEY</span> (auditoriumid) <span class="code-keyword">REFERENCES</span> auditorium(auditoriumid),
+    <span class="code-keyword">FOREIGN KEY</span> (movieid) <span class="code-keyword">REFERENCES</span> movie(movieid)
+);
+
+<span class="code-keyword">CREATE TABLE</span> ticket (
+    ticketid <span class="code-function">INT NOT NULL</span>,
+    seatnumber <span class="code-function">VARCHAR(10) NOT NULL</span>,
+    ticketprice <span class="code-function">DECIMAL(5,2) NOT NULL</span>,
+    showtimeid <span class="code-function">INT NOT NULL</span>,
+    custid <span class="code-function">INT NOT NULL</span>,
+    <span class="code-keyword">PRIMARY KEY</span> (ticketid),
+    <span class="code-keyword">FOREIGN KEY</span> (showtimeid) <span class="code-keyword">REFERENCES</span> showtime(showtimeid),
+    <span class="code-keyword">FOREIGN KEY</span> (custid) <span class="code-keyword">REFERENCES</span> customer(custid)
+);</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Business Analysis with SQL -->
+      <section class="case-study-section">
+        <h2 class="case-section-title">Business Analysis with SQL</h2>
+        <p class="card-body" style="margin-bottom: 1.25rem;">
+          To validate that the database directly supports operational reporting and management decisions, our team authored and tested SQL queries targeting key business questions across revenue, concessions, scheduling, and customer activity.
+        </p>
+
+        <!-- Query 1: Movie Revenue -->
+        <div class="card" style="margin-bottom: 1.25rem; padding: 1.4rem 1.6rem;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.35rem;">
+            <h3 style="font-size: 0.98rem; font-weight: 700; color: var(--color-text-strong);">Q1. Which movies generated the most ticket revenue?</h3>
+            <span class="tech-chip accent">Multiple Join &bull; SUM &bull; GROUP BY &bull; ORDER BY</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">
+            Joins <code>movie</code>, <code>showtime</code>, and <code>ticket</code> tables to calculate aggregate ticket gross revenue per title, sorted in descending order to identify top box-office drivers.
+          </p>
+          <div class="code-window" style="margin: 0.5rem 0;">
+            <div class="code-window-header"><span>SQL Query</span></div>
+            <pre><code><span class="code-keyword">SELECT</span> 
+    m.movietitle, 
+    <span class="code-function">SUM</span>(t.ticketprice) <span class="code-keyword">AS</span> total_revenue
+<span class="code-keyword">FROM</span> movie m
+<span class="code-keyword">JOIN</span> showtime s <span class="code-keyword">ON</span> m.movieid = s.movieid
+<span class="code-keyword">JOIN</span> ticket t <span class="code-keyword">ON</span> s.showtimeid = t.showtimeid
+<span class="code-keyword">GROUP BY</span> m.movietitle
+<span class="code-keyword">ORDER BY</span> total_revenue <span class="code-keyword">DESC</span>;</code></pre>
+          </div>
+        </div>
+
+        <!-- Query 2: Average Ticket Price by Genre with HAVING -->
+        <div class="card" style="margin-bottom: 1.25rem; padding: 1.4rem 1.6rem;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.35rem;">
+            <h3 style="font-size: 0.98rem; font-weight: 700; color: var(--color-text-strong);">Q3. What is the average ticket price by movie genre?</h3>
+            <span class="tech-chip accent">Multiple Join &bull; AVG &bull; GROUP BY with HAVING</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">
+            Aggregates ticket sales across linked genres to assess pricing distributions, applying a <code>HAVING</code> clause to filter out low-volume categories.
+          </p>
+          <div class="code-window" style="margin: 0.5rem 0;">
+            <div class="code-window-header"><span>SQL Query</span></div>
+            <pre><code><span class="code-keyword">SELECT</span> 
+    mg.moviegenre, 
+    <span class="code-function">ROUND</span>(<span class="code-function">AVG</span>(t.ticketprice), 2) <span class="code-keyword">AS</span> avg_ticket_price
+<span class="code-keyword">FROM</span> movie_moviegenre mg
+<span class="code-keyword">JOIN</span> showtime s <span class="code-keyword">ON</span> mg.movieid = s.movieid
+<span class="code-keyword">JOIN</span> ticket t <span class="code-keyword">ON</span> s.showtimeid = t.showtimeid
+<span class="code-keyword">GROUP BY</span> mg.moviegenre
+<span class="code-keyword">HAVING</span> <span class="code-function">COUNT</span>(t.ticketid) &gt;= 1
+<span class="code-keyword">ORDER BY</span> avg_ticket_price <span class="code-keyword">DESC</span>;</code></pre>
+          </div>
+        </div>
+
+        <!-- Query 3: Concession Sales Revenue -->
+        <div class="card" style="margin-bottom: 1.25rem; padding: 1.4rem 1.6rem;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.35rem;">
+            <h3 style="font-size: 0.98rem; font-weight: 700; color: var(--color-text-strong);">Q6. Which concession items generated the highest revenue?</h3>
+            <span class="tech-chip accent">Multiple Join &bull; Arithmetic Aggregation &bull; ORDER BY</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">
+            Multiplies item unit price by line-item order quantities across orders to compute total concession income per item.
+          </p>
+          <div class="code-window" style="margin: 0.5rem 0;">
+            <div class="code-window-header"><span>SQL Query</span></div>
+            <pre><code><span class="code-keyword">SELECT</span> 
+    ci.itemname, 
+    <span class="code-function">SUM</span>(ci.itemprice * od.orderquantity) <span class="code-keyword">AS</span> concession_revenue
+<span class="code-keyword">FROM</span> concession_item ci
+<span class="code-keyword">JOIN</span> order_details od <span class="code-keyword">ON</span> ci.itemid = od.itemid
+<span class="code-keyword">GROUP BY</span> ci.itemname
+<span class="code-keyword">ORDER BY</span> concession_revenue <span class="code-keyword">DESC</span>;</code></pre>
+          </div>
+        </div>
+
+        <!-- Query 4: Filtering with Subqueries -->
+        <div class="card" style="padding: 1.4rem 1.6rem;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.35rem;">
+            <h3 style="font-size: 0.98rem; font-weight: 700; color: var(--color-text-strong);">Q9. Which movies belong to the Action genre?</h3>
+            <span class="tech-chip accent">Subquery &bull; IN Clause &bull; Relational Filtering</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 0.75rem;">
+            Demonstrates nested subquery logic to select movies dynamically based on genre classifications in the bridge table.
+          </p>
+          <div class="code-window" style="margin: 0.5rem 0;">
+            <div class="code-window-header"><span>SQL Query</span></div>
+            <pre><code><span class="code-keyword">SELECT</span> movietitle, movieduration
+<span class="code-keyword">FROM</span> movie
+<span class="code-keyword">WHERE</span> movieid <span class="code-keyword">IN</span> (
+    <span class="code-keyword">SELECT</span> movieid 
+    <span class="code-keyword">FROM</span> movie_moviegenre 
+    <span class="code-keyword">WHERE</span> moviegenre = <span class="code-string">'Action'</span>
+);</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Skills Demonstrated -->
+      <section class="case-study-section">
+        <h2 class="case-section-title">Skills &amp; Competencies Demonstrated</h2>
+        <div class="card" style="padding: 1.5rem 1.75rem;">
+          <div class="tag-group" style="gap: 0.55rem;">
+            <span class="tech-chip accent">SQL</span>
+            <span class="tech-chip accent">MySQL</span>
+            <span class="tech-chip accent">Relational Database Design</span>
+            <span class="tech-chip accent">Entity-Relationship (ER) Modeling</span>
+            <span class="tech-chip">Primary &amp; Foreign Keys</span>
+            <span class="tech-chip">Third Normal Form (3NF)</span>
+            <span class="tech-chip">Multi-Table Joins</span>
+            <span class="tech-chip">Subqueries &amp; IN / NOT IN</span>
+            <span class="tech-chip">Aggregation (SUM, AVG, COUNT)</span>
+            <span class="tech-chip">GROUP BY &amp; HAVING</span>
+            <span class="tech-chip">Data Integrity Constraints</span>
+            <span class="tech-chip">Business Data Analysis</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 7: What I Learned -->
+      <section class="case-study-section">
+        <h2 class="case-section-title">What I Learned</h2>
+        <div class="card" style="padding: 1.5rem 1.75rem;">
+          <ul class="experience-bullets" style="gap: 0.75rem;">
+            <li>
+              <strong>Translating Real-World Business Rules into Schemas:</strong> Gained hands-on experience taking complex theater workflows (room assignments, concession orders, and customer ticketing) and distilling them into structured relational tables that prevent data anomalies.
+            </li>
+            <li>
+              <strong>Enforcing Integrity at the Schema Level:</strong> Learned the importance of foreign key constraints, composite primary keys, and unique attributes in protecting transactional consistency without relying solely on application-layer logic.
+            </li>
+            <li>
+              <strong>Bridging Operational Data to Executive Decisions:</strong> Discovered how thoughtfully structured relational data enables concise, performant SQL queries to uncover revenue drivers, customer behavior, and resource utilization for business leadership.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Bottom Navigation Links -->
+      <div style="margin-top: 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <a href="portfolio.html" class="btn btn-secondary">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          <span>Return to Portfolio</span>
+        </a>
+        <a href="resume.html" class="btn btn-primary">
+          <span>Review Full Resume</span>
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-name">Kylie LaCaze</div>
+          <div class="footer-tagline">B.S. in Information Systems and Analytics • LSU (Dec 2026)</div>
+          <div class="footer-tagline" style="font-size: 0.82rem;">Specialization in Internal Audit • Baton Rouge, LA</div>
+        </div>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="resume.html" class="footer-link">Resume</a></li>
+          <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+          <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a></li>
+          <li><a href="https://github.com/Kylielacaze" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a></li>
+          <li><a href="mailto:kylielacaze@yahoo.com" class="footer-link">Email</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
