@@ -6,7 +6,7 @@ The website uses a hybrid structure with a single-page home page containing my p
 
 ## Live Website
 
-[View my website here](PASTE-YOUR-GITHUB-PAGES-LINK-HERE)
+ https://kylielacaze.github.io/kylies-website/
 
 ## Reflection
 
