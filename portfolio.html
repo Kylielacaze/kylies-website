@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Kylie LaCaze showcasing applied projects in relational database design, SQL business analytics, internal audit testing, and spreadsheet modeling.">
+  <meta name="description" content="Portfolio of Kylie LaCaze showcasing applied case studies in relational database design, SQL analytics, Caesars Entertainment internal audit fieldwork, and financial spreadsheet modeling.">
   <title>Portfolio | Kylie LaCaze - Information Systems &amp; Analytics</title>
   
   <!-- Google Fonts: Inter -->
@@ -16,10 +16,10 @@
 </head>
 <body>
 
-  <!-- Site Navigation -->
+  <!-- Sticky Site Header -->
   <header class="site-header">
     <div class="container">
-      <nav class="site-nav">
+      <nav class="site-nav" aria-label="Main Navigation">
         <a href="index.html" class="nav-brand">
           <span class="brand-name">Kylie LaCaze</span>
           <span class="brand-divider">|</span>
@@ -28,8 +28,8 @@
         <ul class="nav-links">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="resume.html" class="nav-link">Resume</a></li>
-          <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
-          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+          <li><a href="portfolio.html" class="nav-link active" aria-current="page">Portfolio</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -38,22 +38,23 @@
   <!-- Main Content -->
   <main class="main-content">
     <div class="container">
-      <!-- Page Header -->
+      
+      <!-- Portfolio Page Header -->
       <header class="page-header">
         <div class="page-header-content">
           <div>
             <div class="eyebrow-tag">
               <span>Applied Work &amp; Case Studies</span>
             </div>
-            <h1 class="page-title">Technical Project Portfolio</h1>
-            <p class="page-subtitle" style="max-width: 720px;">
-              A curated selection of applied database designs, audit testing engagements, financial modeling, and analytics case studies demonstrating practical competency in Information Systems.
+            <h1 class="page-title">Selected Work</h1>
+            <p class="page-subtitle">
+              Projects demonstrating applied experience in database design, analytics, internal audit, financial analysis, and information systems.
             </p>
           </div>
-          <div style="margin-bottom: 0.5rem;">
+          <div>
             <a href="resume.html" class="btn btn-secondary">
-              <span>View Full Resume</span>
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              <span>View Resume</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
         </div>
@@ -61,42 +62,45 @@
 
       <!-- Portfolio Grid -->
       <div class="portfolio-grid">
+        
         <!-- Project 1: Cinema Database Design (Featured Deep-Dive) -->
-        <article class="portfolio-card" style="grid-column: 1 / -1; border-left: 3px solid var(--color-primary);">
-          <div class="portfolio-card-top">
-            <div class="project-meta-line">Relational Database Architecture &bull; Team Case Study</div>
-            <h2 class="card-title" style="font-size: 1.25rem;">Cinema Database Design &amp; Business Analysis</h2>
-            <p class="card-body" style="font-size: 0.98rem; margin: 0.5rem 0 0.85rem;">
-              Designed a 10-table normalized relational database for a multi-auditorium movie theater business. Focused on translating business operations into a structured 3NF schema and authoring multi-table SQL queries to resolve revenue, attendance, and scheduling questions.
+        <article class="project-card project-card-featured">
+          <div class="project-card-top">
+            <div class="project-category-label">Relational Database Architecture &bull; Applied Case Study</div>
+            <h2 class="project-card-title">
+              <a href="cinema-database.html">Cinema Database Design &amp; Business Analysis</a>
+            </h2>
+            <p class="project-card-desc">
+              Architected a 10-table normalized relational database in MySQL for a multi-auditorium movie theater business. Structured entities to Third Normal Form (3NF) to eliminate insert, update, and deletion anomalies. Authored complex multi-table SQL queries leveraging joins, subqueries, and aggregation (GROUP BY, HAVING) to analyze box-office gross, concession performance, and room scheduling.
             </p>
             <div class="tag-group">
               <span class="tech-chip accent">SQL</span>
               <span class="tech-chip accent">MySQL</span>
-              <span class="tech-chip">Relational Schema Design (3NF)</span>
+              <span class="tech-chip">Relational Schema (3NF)</span>
               <span class="tech-chip">ER Modeling</span>
               <span class="tech-chip">Multi-Table Joins</span>
               <span class="tech-chip">GROUP BY &amp; HAVING</span>
               <span class="tech-chip">Subqueries</span>
             </div>
           </div>
-          <div class="portfolio-card-bottom">
-            <span style="font-size: 0.84rem; font-weight: 600; color: var(--color-primary);">
-              Complete Case Study with DDL &amp; Analytical Queries
-            </span>
-            <a href="cinema-database.html" class="btn btn-primary">
-              <span>View Project</span>
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          <div class="project-card-bottom">
+            <span class="project-context-note">Complete Case Study with DDL &amp; Analytical Queries</span>
+            <a href="cinema-database.html" class="btn btn-primary btn-sm">
+              <span>View Case Study</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
         </article>
 
         <!-- Project 2: Gaming Revenue & Tax Audit Testing -->
-        <article class="portfolio-card">
-          <div class="portfolio-card-top">
-            <div class="project-meta-line">Internal Audit Engagement &bull; Caesars Entertainment</div>
-            <h2 class="card-title">Gaming Revenue &amp; Tax Audit Testing</h2>
-            <p class="card-body">
-              Executed a full-year revenue and tax audit across three casino properties, reconciling operational reports to Oracle general ledger balances and preparing formal AuditBoard workpapers.
+        <article id="audit-testing" class="project-card">
+          <div class="project-card-top">
+            <div class="project-category-label">Internal Audit Fieldwork &bull; Caesars Entertainment</div>
+            <h2 class="project-card-title">
+              <a href="resume.html#experience">Gaming Revenue &amp; Tax Audit Testing</a>
+            </h2>
+            <p class="project-card-desc">
+              Executed a comprehensive full-year revenue and tax audit across three casino properties. Reconciled daily operational transaction reports to Oracle general ledger balances, independently recalculated tax liabilities, and prepared detailed AuditBoard workpapers aligned with Louisiana gaming regulations.
             </p>
             <div class="tag-group">
               <span class="tech-chip accent">AuditBoard</span>
@@ -106,47 +110,51 @@
               <span class="tech-chip">Regulatory Compliance</span>
             </div>
           </div>
-          <div class="portfolio-card-bottom">
-            <span style="font-size: 0.82rem; color: var(--color-text-muted);">New Orleans, LA (Summer 2026)</span>
-            <a href="resume.html" class="btn btn-secondary">
-              <span>View on Resume</span>
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          <div class="project-card-bottom">
+            <span class="project-context-note">New Orleans, LA (Summer 2026)</span>
+            <a href="resume.html#experience" class="btn btn-secondary btn-sm">
+              <span>View Experience</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
         </article>
 
         <!-- Project 3: Advanced Spreadsheet Modeling & Variance Analysis -->
-        <article class="portfolio-card">
-          <div class="portfolio-card-top">
-            <div class="project-meta-line">Analytics &amp; Modeling &bull; LSU Coursework</div>
-            <h2 class="card-title">Advanced Spreadsheet Modeling &amp; Variance Analysis</h2>
-            <p class="card-body">
-              Built dynamic, multi-tab operational and financial workbooks to evaluate transaction anomalies, automate reconciliation checks, and support executive variance reporting.
+        <article class="project-card">
+          <div class="project-card-top">
+            <div class="project-category-label">Financial &amp; Operational Analytics &bull; LSU Coursework</div>
+            <h2 class="project-card-title">
+              <a href="resume.html">Advanced Spreadsheet Modeling &amp; Variance Analysis</a>
+            </h2>
+            <p class="project-card-desc">
+              Engineered dynamic, multi-tab operational and financial models in Microsoft Excel to evaluate transaction anomalies and automate reconciliation checks. Built automated variance reporting systems using dynamic PivotTables and robust lookup formulas to support management review.
             </p>
             <div class="tag-group">
-              <span class="tech-chip accent">Microsoft Excel (MO-210)</span>
+              <span class="tech-chip accent">Microsoft Excel</span>
+              <span class="tech-chip">MO-210 Certified</span>
               <span class="tech-chip">XLOOKUP</span>
               <span class="tech-chip">Dynamic PivotTables</span>
-              <span class="tech-chip">Data Validation</span>
               <span class="tech-chip">Variance Analysis</span>
             </div>
           </div>
-          <div class="portfolio-card-bottom">
-            <span style="font-size: 0.82rem; color: var(--color-text-muted);">Certified Competency</span>
-            <a href="resume.html" class="btn btn-secondary">
+          <div class="project-card-bottom">
+            <span class="project-context-note">Certified Competency</span>
+            <a href="resume.html" class="btn btn-secondary btn-sm">
               <span>View Competencies</span>
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
         </article>
 
         <!-- Project 4: AI Governance & Controls Framework Analysis -->
-        <article class="portfolio-card">
-          <div class="portfolio-card-top">
-            <div class="project-meta-line">Audit &amp; Governance &bull; LSU Center for Internal Auditing</div>
-            <h2 class="card-title">AI Governance &amp; Controls Framework Analysis</h2>
-            <p class="card-body">
-              Evaluated artificial intelligence systems and generative AI/LLM risk factors against established industry governance frameworks to formulate control testing procedures.
+        <article class="project-card">
+          <div class="project-card-top">
+            <div class="project-category-label">Emerging Technology &amp; Risk &bull; LSU Center for Internal Auditing</div>
+            <h2 class="project-card-title">
+              <a href="resume.html">AI Governance &amp; Controls Framework Analysis</a>
+            </h2>
+            <p class="project-card-desc">
+              Conducted governance analysis mapping enterprise artificial intelligence and large language model (LLM) risk profiles to established regulatory standards including the NIST AI RMF, ISO/IEC 42001, and EU AI Act. Formulated audit procedures and control testing considerations for model oversight.
             </p>
             <div class="tag-group">
               <span class="tech-chip accent">NIST AI RMF</span>
@@ -156,77 +164,79 @@
               <span class="tech-chip">Internal Control Design</span>
             </div>
           </div>
-          <div class="portfolio-card-bottom">
-            <span style="font-size: 0.82rem; color: var(--color-text-muted);">Center for Internal Auditing</span>
-            <a href="resume.html" class="btn btn-secondary">
+          <div class="project-card-bottom">
+            <span class="project-context-note">Center for Internal Auditing</span>
+            <a href="resume.html" class="btn btn-secondary btn-sm">
               <span>View Competencies</span>
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
         </article>
 
         <!-- Project 5: Data Visualization & KPI Dashboard Analysis -->
-        <article class="portfolio-card">
-          <div class="portfolio-card-top">
-            <div class="project-meta-line">Business Intelligence &bull; LSU Coursework</div>
-            <h2 class="card-title">Data Visualization &amp; KPI Dashboard Analysis</h2>
-            <p class="card-body">
-              Cleaned and pre-processed operational datasets with Python, transforming raw records into interactive Tableau dashboards for executive metric exploration.
+        <article class="project-card">
+          <div class="project-card-top">
+            <div class="project-category-label">Business Intelligence &amp; Data Science &bull; LSU Coursework</div>
+            <h2 class="project-card-title">
+              <a href="resume.html">Data Visualization &amp; KPI Dashboard Analysis</a>
+            </h2>
+            <p class="project-card-desc">
+              Processed and prepared business datasets using Python to cleanse and aggregate operational metrics. Designed interactive dashboards in Tableau enabling stakeholders to analyze key performance indicators, regional trends, and operational distributions.
             </p>
             <div class="tag-group">
               <span class="tech-chip accent">Tableau</span>
-              <span class="tech-chip">Python for Data Analysis</span>
+              <span class="tech-chip">Python</span>
               <span class="tech-chip">KPI Tracking</span>
               <span class="tech-chip">Data Cleansing</span>
               <span class="tech-chip">Interactive Dashboards</span>
             </div>
           </div>
-          <div class="portfolio-card-bottom">
-            <span style="font-size: 0.82rem; color: var(--color-text-muted);">ISDS Analytics Track</span>
-            <a href="resume.html" class="btn btn-secondary">
+          <div class="project-card-bottom">
+            <span class="project-context-note">ISDS Analytics Track</span>
+            <a href="resume.html" class="btn btn-secondary btn-sm">
               <span>View Competencies</span>
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
         </article>
+
       </div>
 
       <!-- Professional Outreach Callout -->
-      <section style="margin-top: 3.5rem;">
-        <div class="card" style="text-align: center; padding: 2.5rem 1.5rem; background-color: #ffffff;">
-          <h3 class="section-title" style="justify-content: center; margin-bottom: 0.5rem;">Interested in Discussing These Projects?</h3>
-          <p class="section-desc" style="max-width: 620px; margin: 0 auto 1.5rem; font-size: 0.96rem;">
-            I welcome the opportunity to discuss my database design, audit fieldwork at Caesars Entertainment, and analytics coursework.
-          </p>
-          <div class="btn-group" style="justify-content: center;">
+      <section class="content-section" style="margin-top: 4rem;">
+        <div class="home-cta-section" style="margin-top: 0;">
+          <div class="home-cta-content">
+            <h2 class="home-cta-title">Interested in Discussing These Projects?</h2>
+            <p class="home-cta-desc">
+              I welcome the opportunity to discuss my database design, audit fieldwork at Caesars Entertainment, and analytics coursework in greater detail.
+            </p>
+          </div>
+          <div class="btn-group">
             <a href="mailto:kylielacaze@yahoo.com" class="btn btn-primary">
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-              <span>Send an Email</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+              <span>Send Email</span>
             </a>
-            <a href="resume.html" class="btn btn-secondary">Review Full Resume</a>
+            <a href="resume.html" class="btn btn-secondary">Review Resume</a>
             <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-              <span>LinkedIn Profile</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <span>LinkedIn</span>
             </a>
           </div>
         </div>
       </section>
+
     </div>
   </main>
 
-  <!-- Site Footer -->
+  <!-- Minimal Site Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-brand">
           <div class="footer-name">Kylie LaCaze</div>
-          <div class="footer-tagline">B.S. in Information Systems and Analytics • LSU (Dec 2026)</div>
-          <div class="footer-tagline" style="font-size: 0.82rem;">Specialization in Internal Audit • Baton Rouge, LA</div>
+          <div class="footer-tagline">Information Systems &amp; Analytics &bull; Louisiana State University</div>
         </div>
         <ul class="footer-links">
-          <li><a href="index.html" class="footer-link">Home</a></li>
-          <li><a href="resume.html" class="footer-link">Resume</a></li>
-          <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
           <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a></li>
           <li><a href="https://github.com/Kylielacaze" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a></li>
           <li><a href="mailto:kylielacaze@yahoo.com" class="footer-link">Email</a></li>
